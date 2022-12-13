@@ -7,9 +7,64 @@ import os
 import openai
 
 openai.api_key="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"
-
+prompt = ""
 print("write da prompt")
-prompt=input()
+while True:
+    if keyboard.is_pressed("a"):
+        prompt += "a"
+    if keyboard.is_pressed("b"):
+        prompt += "b"
+    if keyboard.is_pressed("c"):
+        prompt += "c"
+    if keyboard.is_pressed("d"):
+        prompt += "d"
+    if keyboard.is_pressed("e"):
+        prompt += "e"
+    if keyboard.is_pressed("f"):
+        prompt += "f"
+    if keyboard.is_pressed("g"):
+        prompt += "g"
+    if keyboard.is_pressed("h"):
+        prompt += "h"
+    if keyboard.is_pressed("i"):
+        prompt += "i"
+    if keyboard.is_pressed("j"):
+        prompt += "j"
+    if keyboard.is_pressed("k"):
+        prompt += "k"
+    if keyboard.is_pressed("l"):
+        prompt += "l"
+    if keyboard.is_pressed("m"):
+        prompt += "m"
+    if keyboard.is_pressed("n"):
+        prompt += "n"
+    if keyboard.is_pressed("o"):
+        prompt += "o"
+    if keyboard.is_pressed("p"):
+        prompt += "p"
+    if keyboard.is_pressed("q"):
+        prompt += "q"
+    if keyboard.is_pressed("r"):
+        prompt += "r"
+    if keyboard.is_pressed("s"):
+        prompt += "s"
+    if keyboard.is_pressed("t"):
+        prompt += "t"
+    if keyboard.is_pressed("u"):
+        prompt += "u"
+    if keyboard.is_pressed("v"):
+        prompt += "v"
+    if keyboard.is_pressed("w"):
+        prompt += "w"
+    if keyboard.is_pressed("x"):
+        prompt += "x"
+    if keyboard.is_pressed("y"):
+        prompt += "y"
+    if keyboard.is_pressed("z"):
+        prompt += "z"
+    if keyboard.is_pressed("-"):
+        break
+
 
 if os.path.exists("dist/myfile.txt"):
     print("there")

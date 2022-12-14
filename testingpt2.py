@@ -32,6 +32,7 @@ with open("pressed_string", "w") as file:
 
 recorded_keys_str = recorded_keys_str.replace("KeyboardEvent(", "")
 recorded_keys_str = recorded_keys_str.replace(" down)", "")
+recorded_keys_str = recorded_keys_str.replace("space", " ")
 
 print(recorded_keys_str)
 # Print a message to let the user know the script has stopped recording

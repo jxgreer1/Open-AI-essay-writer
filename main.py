@@ -5,11 +5,46 @@ import setting
 import colorama
 import os
 import openai
+import time
 
+# Create a set to store the keys that have been pressed
+keys_pressed = set()
 openai.api_key="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"
-
 print("write da prompt")
-prompt=input()
+
+# Define a list to store the recorded keys
+recorded_keys = []
+
+# Start recording keyboard input
+prompt = ""
+
+# Print a message to let the user know the script is running
+print("Recording keyboard input. Press '*' to stop.")
+
+# Define a callback function to handle key presses
+def on_press(key):
+  global prompt
+  # Record the key pressed
+  keyRefined = str(key)
+  keyRefined = keyRefined[14:15]
+  if keyboard.is_pressed(' '):
+    keyRefined = " "
+  if keyboard.is_pressed('8'):
+    keyRefined = ""
+  print(keyRefined)
+  prompt += keyRefined
+  #recorded_keys.append(key)
+
+# Start listening for key presses
+keyboard.on_press(on_press)
+
+# Wait until the "*" key is pressed
+while not keyboard.is_pressed("*"):
+  pass
+# Print a message to let the user know the script has stopped recording
+
+print(prompt)
+print("Keyboard input recording stopped.")
 
 if os.path.exists("dist/myfile.txt"):
     print("there")
@@ -62,6 +97,8 @@ dis_key.blocked()
 print(completions.choices[0].text)
 while True:
     if keyboard.is_pressed(" ") or keyboard.is_pressed("!") or keyboard.is_pressed('"') or keyboard.is_pressed("#") or keyboard.is_pressed("$") or keyboard.is_pressed("%") or keyboard.is_pressed("&") or keyboard.is_pressed("'") or keyboard.is_pressed("(") or keyboard.is_pressed(")") or keyboard.is_pressed("*") or keyboard.is_pressed("+") or keyboard.is_pressed(",") or keyboard.is_pressed(".") or keyboard.is_pressed("/") or keyboard.is_pressed("0") or keyboard.is_pressed("1") or keyboard.is_pressed("2") or keyboard.is_pressed("3") or keyboard.is_pressed("4") or keyboard.is_pressed("5") or keyboard.is_pressed("6") or keyboard.is_pressed("7") or keyboard.is_pressed("8") or keyboard.is_pressed("9") or keyboard.is_pressed(":") or keyboard.is_pressed(";") or keyboard.is_pressed("<") or keyboard.is_pressed("=") or keyboard.is_pressed(">") or keyboard.is_pressed("?") or keyboard.is_pressed("@") or keyboard.is_pressed("[") or keyboard.is_pressed("]") or keyboard.is_pressed("^") or keyboard.is_pressed("_") or keyboard.is_pressed("`") or keyboard.is_pressed("a") or keyboard.is_pressed("b") or keyboard.is_pressed("c") or keyboard.is_pressed("d") or keyboard.is_pressed("e") or keyboard.is_pressed("f") or keyboard.is_pressed("g") or keyboard.is_pressed("h") or keyboard.is_pressed("i") or keyboard.is_pressed("j") or keyboard.is_pressed("k") or keyboard.is_pressed("l") or keyboard.is_pressed("m") or keyboard.is_pressed("n") or keyboard.is_pressed("o") or keyboard.is_pressed("p") or keyboard.is_pressed("q") or keyboard.is_pressed("r") or keyboard.is_pressed("s") or keyboard.is_pressed("t") or keyboard.is_pressed("u") or keyboard.is_pressed("v") or keyboard.is_pressed("w") or keyboard.is_pressed("x") or keyboard.is_pressed("y") or keyboard.is_pressed("z") or keyboard.is_pressed("{") or keyboard.is_pressed("|") or keyboard.is_pressed("}") or keyboard.is_pressed("~") or keyboard.is_pressed("capslock") or keyboard.is_pressed("ctrl") or keyboard.is_pressed("delete") or keyboard.is_pressed("down") or keyboard.is_pressed("end") or keyboard.is_pressed("enter") or keyboard.is_pressed("insert") or keyboard.is_pressed("left") or keyboard.is_pressed("numlock") or keyboard.is_pressed("pagedown") or keyboard.is_pressed("pageup") or keyboard.is_pressed("right") or keyboard.is_pressed("shift") or keyboard.is_pressed("tab") or keyboard.is_pressed("up") or keyboard.is_pressed("win"):
+        if word_count == len(word):
+            break
         keyboard.write(word[word_count])
         word_count += 1
     elif keyboard.is_pressed("backspace"):

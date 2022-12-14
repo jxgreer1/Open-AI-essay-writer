@@ -5,6 +5,7 @@ import setting
 import colorama
 import os
 import openai
+import time
 
 # Create a set to store the keys that have been pressed
 keys_pressed = set()
@@ -12,18 +13,39 @@ openai.api_key="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"
 prompt = ""
 print("write da prompt")
 
+# Define a list to store the recorded keys
+recorded_keys = []
+
+# Print a message to let the user know the script is running
+print("Recording keyboard input. Press '-' to stop.")
+
+# Start recording keyboard input
+while True:
+  # Check if the "- " key has been pressed
+  if keyboard.is_pressed("-"):
+    # If the "- " key is pressed, break out of the loop
+    break
+
+  # Record the current key pressed
+  key = keyboard.read_key()
+  recorded_keys.append(key)
+
+  # Print the recorded keys to the console
+
+# Print a message to let the user know the script has stopped recording
+print(recorded_keys)
+print("Keyboard input recording stopped.")
+"""
 while True:
     
     key = keyboard.read_key()
-    # Check if the key has been pressed before
-    if key in keys_pressed:
-        # If the key has been pressed before, skip it
-        continue
-    # Add the key to the set of pressed keys
-    keys_pressed.add(key)
+    prompt = keyboard.record()
 
-    if key == "a":
-        prompt += "a"
+    if key == "-":
+        break
+   
+"""         
+"""
     elif key == "b":
         prompt += "b"
     elif key == "c":
@@ -78,6 +100,7 @@ while True:
         prompt += " "
     elif key == "-":
         break
+"""
 
 if os.path.exists("dist/myfile.txt"):
     print("there")

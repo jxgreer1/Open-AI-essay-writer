@@ -1,5 +1,0 @@
-writemasoy.com/blog/2009/10/17/how-to-make-a-simple-javascript-slideshow-without-using-any-library/
-
-## License
-
-MIT

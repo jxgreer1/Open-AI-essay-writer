@@ -14,7 +14,7 @@ print("write da prompt")
 
 # Define a list to store the recorded keys
 recorded_keys = []
-
+##################################################################################
 # Start recording keyboard input
 prompt = ""
 
@@ -45,7 +45,7 @@ while not keyboard.is_pressed("*"):
 
 print(prompt)
 print("Keyboard input recording stopped.")
-
+######################################################################################
 if os.path.exists("dist/myfile.txt"):
     print("there")
     os.remove("dist/myfile.txt")

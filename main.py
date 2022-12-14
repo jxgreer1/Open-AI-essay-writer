@@ -10,97 +10,37 @@ import time
 # Create a set to store the keys that have been pressed
 keys_pressed = set()
 openai.api_key="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"
-prompt = ""
 print("write da prompt")
 
 # Define a list to store the recorded keys
 recorded_keys = []
 
-# Print a message to let the user know the script is running
-print("Recording keyboard input. Press '-' to stop.")
-
 # Start recording keyboard input
-while True:
-  # Check if the "- " key has been pressed
-  if keyboard.is_pressed("-"):
-    # If the "- " key is pressed, break out of the loop
-    break
+prompt = ""
 
-  # Record the current key pressed
-  key = keyboard.read_key()
-  recorded_keys.append(key)
+# Print a message to let the user know the script is running
+print("Recording keyboard input. Press '*' to stop.")
 
-  # Print the recorded keys to the console
+# Define a callback function to handle key presses
+def on_press(key):
+  global prompt
+  # Record the key pressed
+  keyRefined = str(key)
+  keyRefined = keyRefined[14:15]
+  if keyboard.is_pressed(' '):
+    keyRefined = " "
+  prompt += keyRefined
+  #recorded_keys.append(key)
 
+# Start listening for key presses
+keyboard.on_press(on_press)
+
+# Wait until the "*" key is pressed
+while not keyboard.is_pressed("*"):
+  pass
 # Print a message to let the user know the script has stopped recording
-print(recorded_keys)
+print(prompt[:-1])
 print("Keyboard input recording stopped.")
-"""
-while True:
-    
-    key = keyboard.read_key()
-    prompt = keyboard.record()
-
-    if key == "-":
-        break
-   
-"""         
-"""
-    elif key == "b":
-        prompt += "b"
-    elif key == "c":
-        prompt += "c"
-    elif key == "d":
-        prompt += "d"
-    elif key == "e":
-        prompt += "e"
-    elif key == "f":
-        prompt += "f"
-    elif key == "g":
-        prompt += "g"
-    elif key == "h":
-        prompt += "h"
-    elif key == "i":
-        prompt += "i"
-    elif key == "j":
-        prompt += "j"
-    elif key == "k":
-        prompt += "k"
-    elif key == "l":
-        prompt += "l"
-    elif key == "m":
-        prompt += "m"
-    elif key == "n":
-        prompt += "n"
-    elif key == "o":
-        prompt += "o"
-    elif key == "p":
-        prompt += "p"
-    elif key == "q":
-        prompt += "q"
-    elif key == "r":
-        prompt += "r"
-    elif key == "s":
-        prompt += "s"
-    elif key == "t":
-        prompt += "t"
-    elif key == "u":
-        prompt += "u"
-    elif key == "v":
-        prompt += "v"
-    elif key == "w":
-        prompt += "w"
-    elif key == "x":
-        prompt += "x"
-    elif key == "y":
-        prompt += "y"
-    elif key == "z":
-        prompt += "z"
-    elif key == " ":
-        prompt += " "
-    elif key == "-":
-        break
-"""
 
 if os.path.exists("dist/myfile.txt"):
     print("there")

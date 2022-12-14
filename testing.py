@@ -24,18 +24,6 @@ keyboard.on_press(on_press)
 # Wait until the "*" key is pressed
 while not keyboard.is_pressed("*"):
   pass
-"""
-# Join the recorded keys into a single string
-recorded_keys_str = "".join(str(key) for key in recorded_keys)
-
-# Print the recorded keys string
-print(f"Recorded keys: {recorded_keys_str}")
-
-# Save the recorded keys string to a file called "pressed_string"
-
-with open("pressed_string", "w") as file:
-  file.write(recorded_keys_str)
-"""
 # Print a message to let the user know the script has stopped recording
 print(prompt[:-1])
 print("Keyboard input recording stopped.")

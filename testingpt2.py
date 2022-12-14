@@ -25,14 +25,14 @@ recorded_keys_str = "".join(str(key) for key in recorded_keys)
 
 # Print the recorded keys string
 print(f"Recorded keys: {recorded_keys_str}")
-
 # Save the recorded keys string to a file called "pressed_string"
 with open("pressed_string", "w") as file:
   file.write(recorded_keys_str)
-
+recorded_keys_str = recorded_keys_str.replace("backspace down","",)
 recorded_keys_str = recorded_keys_str.replace("KeyboardEvent(", "")
 recorded_keys_str = recorded_keys_str.replace(" down)", "")
 recorded_keys_str = recorded_keys_str.replace("space", " ")
+
 
 print(recorded_keys_str)
 # Print a message to let the user know the script has stopped recording

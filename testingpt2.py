@@ -28,7 +28,21 @@ print(f"Recorded keys: {recorded_keys_str}")
 # Save the recorded keys string to a file called "pressed_string"
 with open("pressed_string", "w") as file:
   file.write(recorded_keys_str)
-recorded_keys_str = recorded_keys_str.replace("backspace down","",)
+
+#KeyboardEvent(backspace
+while "KeyboardEvent(backspace" in recorded_keys_str:
+    if recorded_keys_str.find("KeyboardEvent(backspace") != 0:
+        before = 21
+        after = 29
+        pos = recorded_keys_str.find("KeyboardEvent(backspace")
+        #11
+        if recorded_keys_str[pos-11:pos-6] == "space":
+            before = 25
+        if recorded_keys_str[pos+20:pos+25] == "space":
+            after = 28
+        recorded_keys_str = recorded_keys_str[:pos-before] + recorded_keys_str[pos+after:]
+        print("\n" +recorded_keys_str)
+        
 recorded_keys_str = recorded_keys_str.replace("KeyboardEvent(", "")
 recorded_keys_str = recorded_keys_str.replace(" down)", "")
 recorded_keys_str = recorded_keys_str.replace("space", " ")

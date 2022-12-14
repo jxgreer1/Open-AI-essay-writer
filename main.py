@@ -11,7 +11,9 @@ keys_pressed = set()
 openai.api_key="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"
 prompt = ""
 print("write da prompt")
+
 while True:
+    
     key = keyboard.read_key()
     # Check if the key has been pressed before
     if key in keys_pressed:
@@ -72,6 +74,8 @@ while True:
         prompt += "y"
     elif key == "z":
         prompt += "z"
+    elif key == " ":
+        prompt += " "
     elif key == "-":
         break
 

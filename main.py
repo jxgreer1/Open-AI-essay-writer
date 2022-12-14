@@ -6,11 +6,20 @@ import colorama
 import os
 import openai
 
+# Create a set to store the keys that have been pressed
+keys_pressed = set()
 openai.api_key="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"
 prompt = ""
 print("write da prompt")
 while True:
     key = keyboard.read_key()
+    # Check if the key has been pressed before
+    if key in keys_pressed:
+        # If the key has been pressed before, skip it
+        continue
+    # Add the key to the set of pressed keys
+    keys_pressed.add(key)
+
     if key == "a":
         prompt += "a"
     elif key == "b":
@@ -60,14 +69,11 @@ while True:
     elif key == "x":
         prompt += "x"
     elif key == "y":
-        prompt +="y"
-    elif key =="z":
-        prompt +="z"
-
+        prompt += "y"
+    elif key == "z":
+        prompt += "z"
     elif key == "-":
         break
-
-
 
 if os.path.exists("dist/myfile.txt"):
     print("there")

@@ -10,60 +10,63 @@ openai.api_key="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"
 prompt = ""
 print("write da prompt")
 while True:
-    if keyboard.is_pressed("a"):
+    key = keyboard.read_key()
+    if key == "a":
         prompt += "a"
-    if keyboard.is_pressed("b"):
+    elif key == "b":
         prompt += "b"
-    if keyboard.is_pressed("c"):
+    elif key == "c":
         prompt += "c"
-    if keyboard.is_pressed("d"):
+    elif key == "d":
         prompt += "d"
-    if keyboard.is_pressed("e"):
+    elif key == "e":
         prompt += "e"
-    if keyboard.is_pressed("f"):
+    elif key == "f":
         prompt += "f"
-    if keyboard.is_pressed("g"):
+    elif key == "g":
         prompt += "g"
-    if keyboard.is_pressed("h"):
+    elif key == "h":
         prompt += "h"
-    if keyboard.is_pressed("i"):
+    elif key == "i":
         prompt += "i"
-    if keyboard.is_pressed("j"):
+    elif key == "j":
         prompt += "j"
-    if keyboard.is_pressed("k"):
+    elif key == "k":
         prompt += "k"
-    if keyboard.is_pressed("l"):
+    elif key == "l":
         prompt += "l"
-    if keyboard.is_pressed("m"):
+    elif key == "m":
         prompt += "m"
-    if keyboard.is_pressed("n"):
+    elif key == "n":
         prompt += "n"
-    if keyboard.is_pressed("o"):
+    elif key == "o":
         prompt += "o"
-    if keyboard.is_pressed("p"):
+    elif key == "p":
         prompt += "p"
-    if keyboard.is_pressed("q"):
+    elif key == "q":
         prompt += "q"
-    if keyboard.is_pressed("r"):
+    elif key == "r":
         prompt += "r"
-    if keyboard.is_pressed("s"):
+    elif key == "s":
         prompt += "s"
-    if keyboard.is_pressed("t"):
+    elif key == "t":
         prompt += "t"
-    if keyboard.is_pressed("u"):
+    elif key == "u":
         prompt += "u"
-    if keyboard.is_pressed("v"):
+    elif key == "v":
         prompt += "v"
-    if keyboard.is_pressed("w"):
+    elif key == "w":
         prompt += "w"
-    if keyboard.is_pressed("x"):
+    elif key == "x":
         prompt += "x"
-    if keyboard.is_pressed("y"):
-        prompt += "y"
-    if keyboard.is_pressed("z"):
-        prompt += "z"
-    if keyboard.is_pressed("-"):
+    elif key == "y":
+        prompt +="y"
+    elif key =="z":
+        prompt +="z"
+
+    elif key == "-":
         break
+
 
 
 if os.path.exists("dist/myfile.txt"):

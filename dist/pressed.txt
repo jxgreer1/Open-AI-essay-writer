@@ -1,0 +1,1 @@
+KeyboardEvent(t down),KeyboardEvent(e down),KeyboardEvent(s down),KeyboardEvent(t down),KeyboardEvent(i down),KeyboardEvent(n down),KeyboardEvent(g down),KeyboardEvent(shift down),KeyboardEvent(* down)

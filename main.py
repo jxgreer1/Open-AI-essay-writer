@@ -6,7 +6,7 @@ import colorama
 import os
 import openai
 import time
-
+# pip install -r requirements.txt 
 # Create a set to store the keys that have been pressed
 keys_pressed = set()
 openai.api_key="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"

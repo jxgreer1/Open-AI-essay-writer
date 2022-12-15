@@ -9,7 +9,7 @@ import time
 # pip install -r requirements.txt 
 # Create a set to store the keys that have been pressed
 keys_pressed = set()
-openai.api_key="PUT YOUR API KEY"
+openai.api_key="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"
 print("write da prompt")
 
 # Define a list to store the recorded keys
@@ -19,12 +19,12 @@ print("write da prompt")
 recorded_keys = []
 
 # Print a message to let the user know the script is running
-print("Recording keyboard input. Press '*' to stop.")
+print("Recording keyboard input. Press '=' to stop.")
 
 # Define a callback function to handle key presses
 def on_press(key):
   # Record the key pressed
-  #if keyboard.is_pressed(' '):
+  #if keyboard.is_pressed(' '):w
   #  key = " "
   recorded_keys.append(key)
 
@@ -32,7 +32,7 @@ def on_press(key):
 keyboard.on_press(on_press)
 
 # Wait until the "*" key is pressed
-while not keyboard.is_pressed("*"):
+while not keyboard.is_pressed("="):
   pass
 
 # Join the recorded keys into a single string
@@ -94,9 +94,9 @@ f.close()
 print(y)
 # Use the GPT-3 model to generate the essay
 completions = openai.Completion.create(
-    engine="text-davinci-002",
+    engine="text-davinci-003",
     prompt=y,
-    max_tokens=4080,
+    max_tokens=4060,
     temperature=0.5,
     top_p=1,
     frequency_penalty=0,

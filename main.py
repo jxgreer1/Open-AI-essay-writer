@@ -6,11 +6,11 @@ import colorama
 import os
 import openai
 import time
-# pip install -r requirements.txt 
+# pip install -r requirements.txt
 # Create a set to store the keys that have been pressed
 keys_pressed = set()
-openai.api_key="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"
-print("write da prompt")
+openai.api_key = "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"
+print("write da prompt, press = to submit")
 
 # Define a list to store the recorded keys
 
@@ -18,22 +18,20 @@ print("write da prompt")
 # Define a list to store the recorded keys
 recorded_keys = []
 
-# Print a message to let the user know the script is running
-print("Recording keyboard input. Press '=' to stop.")
-
 # Define a callback function to handle key presses
 def on_press(key):
-  # Record the key pressed
-  #if keyboard.is_pressed(' '):
-  #  key = " "
-  recorded_keys.append(key)
+    # Record the key pressed
+    # if keyboard.is_pressed(' '):
+    #  key = " "
+    recorded_keys.append(key)
+
 
 # Start listening for key presses
 keyboard.on_press(on_press)
 
 # Wait until the "*" key is pressed
 while not keyboard.is_pressed("="):
-  pass
+    pass
 
 # Join the recorded keys into a single string
 recorded_keys_str = "".join(str(key) for key in recorded_keys)
@@ -42,28 +40,28 @@ recorded_keys_str = "".join(str(key) for key in recorded_keys)
 print(f"Recorded keys: {recorded_keys_str}")
 # Save the recorded keys string to a file called "pressed_string"
 with open("pressed_string", "w") as file:
-  file.write(recorded_keys_str)
+    file.write(recorded_keys_str)
 
-#KeyboardEvent(backspace
+# KeyboardEvent(backspace
 while "KeyboardEvent(backspace" in recorded_keys_str:
     if recorded_keys_str.find("KeyboardEvent(backspace") != 0:
         before = 21
         after = 29
         pos = recorded_keys_str.find("KeyboardEvent(backspace")
-        #11
+        # 11
         if recorded_keys_str[pos-11:pos-6] == "space":
             before = 25
         if recorded_keys_str[pos+20:pos+25] == "space":
             after = 28
-        recorded_keys_str = recorded_keys_str[:pos-before] + recorded_keys_str[pos+after:]
-        print("\n" +recorded_keys_str)
-        
+        recorded_keys_str = recorded_keys_str[:pos -
+                                              before] + recorded_keys_str[pos+after:]
+        print("\n" + recorded_keys_str)
+
 recorded_keys_str = recorded_keys_str.replace("KeyboardEvent(", "")
 recorded_keys_str = recorded_keys_str.replace(" down)", "")
 recorded_keys_str = recorded_keys_str.replace("space", " ")
 recorded_keys_str = recorded_keys_str.replace("shift", "")
 recorded_keys_str = recorded_keys_str.replace("enter", "")
-
 
 
 print(recorded_keys_str)
@@ -74,24 +72,24 @@ print("Keyboard input recording stopped.")
 if os.path.exists("dist/myfile.txt"):
     print("there")
     os.remove("dist/myfile.txt")
-    
-else: 
+
+else:
     print("nothere")
 
 f = open("dist/myfile.txt", "x")
 f.write(prompt)
 f.close()
 # Print the generated essay
-    
+
 global word_count
 global word
 # Clear Terminal
-os.system('cls' if os.name=='nt' else 'clear')
+os.system('cls' if os.name == 'nt' else 'clear')
 colorama.init(autoreset=True, convert=True)
 # the letter for what to press
 word_count = 0
 # Grabbing Document
-f=open("dist/myfile.txt", "r")
+f = open("dist/myfile.txt", "r")
 y = f.read()
 f.close()
 print(y)
@@ -100,7 +98,7 @@ completions = openai.Completion.create(
     engine="text-davinci-003",
     prompt=y,
     max_tokens=4060,
-    temperature=0.01,
+    temperature=0.08,
     top_p=1,
     frequency_penalty=0,
     presence_penalty=0
@@ -117,7 +115,7 @@ for i in word:
         word = word[:x]+["'"]+word[x+1:]
     else:
         pass
-#Block Key             
+# Block Key
 dis_key.blocked()
 print(completions.choices[0].text)
 while True:
@@ -134,6 +132,3 @@ while True:
         dis_key.unblocked()
         keyboard.wait("-")
         dis_key.blocked()
-
-    
-

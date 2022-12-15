@@ -5,7 +5,7 @@ writes essays via your keyboard using open ai to get around cheat programs
 --https://code.visualstudio.com/download
 -Next you need to setup an open ai API key
 --https://beta.openai.com/account/api-keys
-##SETUP
+## SETUP
 
 once those are made, you simplgy download the code in a zip, extract and open in vs code
 in the main.py there is openai.api_key="PUT YOUR API KEY"

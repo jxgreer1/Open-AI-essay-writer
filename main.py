@@ -24,7 +24,7 @@ print("Recording keyboard input. Press '=' to stop.")
 # Define a callback function to handle key presses
 def on_press(key):
   # Record the key pressed
-  #if keyboard.is_pressed(' '):w
+  #if keyboard.is_pressed(' '):
   #  key = " "
   recorded_keys.append(key)
 

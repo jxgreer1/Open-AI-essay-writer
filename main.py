@@ -61,6 +61,9 @@ while "KeyboardEvent(backspace" in recorded_keys_str:
 recorded_keys_str = recorded_keys_str.replace("KeyboardEvent(", "")
 recorded_keys_str = recorded_keys_str.replace(" down)", "")
 recorded_keys_str = recorded_keys_str.replace("space", " ")
+recorded_keys_str = recorded_keys_str.replace("shift", "")
+recorded_keys_str = recorded_keys_str.replace("enter", "")
+
 
 
 print(recorded_keys_str)
@@ -97,7 +100,7 @@ completions = openai.Completion.create(
     engine="text-davinci-003",
     prompt=y,
     max_tokens=4060,
-    temperature=0.5,
+    temperature=0.01,
     top_p=1,
     frequency_penalty=0,
     presence_penalty=0

@@ -44,7 +44,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **jxgreer1 for creating this project**
 
-** @bossmaster217 for helping out**
+**@bossmaster217 for helping out**
 
+
+###
+understand that if you use this, we are not reliable for anything that happens to you (:
 ![DALL·E 2023-03-14 12 05 53](https://user-images.githubusercontent.com/77305546/225111014-1700003f-8bae-4a59-81f5-aee33b6a91a0.png)
 

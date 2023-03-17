@@ -1,4 +1,3 @@
-import pyautogui
 import keyboard
 import dis_key
 import setting
@@ -6,11 +5,12 @@ import colorama
 import os
 import openai
 import time
+import sys
 # pip install -r requirements.txt
 # Create a set to store the keys that have been pressed
 keys_pressed = set()
-openai.api_key = "PUT YOUR API KEY"
-print("write da prompt, press = to submit")
+openai.api_key = "put api key here"
+print("write the prompt, press = to submit press - to Pause")
 
 # Define a list to store the recorded keys
 
@@ -30,8 +30,14 @@ def on_press(key):
 keyboard.on_press(on_press)
 
 # Wait until the "*" key is pressed
-while not keyboard.is_pressed("="):
+while not keyboard.is_pressed("=") and not keyboard.is_pressed("-"):
     pass
+
+
+if keyboard.is_pressed("-"):
+    print("Script paused by user.")
+    # Perform any cleanup tasks or exit the script
+    sys.exit(0)
 
 # Join the recorded keys into a single string
 recorded_keys_str = "".join(str(key) for key in recorded_keys)
@@ -125,7 +131,9 @@ while True:
         keyboard.write(word[word_count])
         word_count += 1
     elif keyboard.is_pressed("backspace"):
-        pyautogui.press("backspace")
+        keyboard.press("backspace")
+        keyboard.release("backspace")
+
         if word_count != 0:
             word_count -= 1
     elif keyboard.is_pressed("-"):

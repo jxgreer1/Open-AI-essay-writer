@@ -9,7 +9,7 @@ import sys
 # pip install -r requirements.txt
 # Create a set to store the keys that have been pressed
 keys_pressed = set()
-openai.api_key = "put api key here"
+openai.api_key = "YOUR API"
 print("write the prompt, press = to submit press - to Pause")
 
 # Define a list to store the recorded keys
@@ -101,10 +101,10 @@ f.close()
 print(y)
 # Use the GPT-3 model to generate the essay
 completions = openai.Completion.create(
-    engine="text-davinci-003",
+    engine="text-babbage-001",
     prompt=y,
-    max_tokens=4060,
-    temperature=0.08,
+    max_tokens=400,
+    temperature=0.06,
     top_p=1,
     frequency_penalty=0,
     presence_penalty=0
